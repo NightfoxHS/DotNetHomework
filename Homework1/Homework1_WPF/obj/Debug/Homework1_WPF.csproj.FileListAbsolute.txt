@@ -1,0 +1,15 @@
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\Homework1_WPF.csprojAssemblyReference.cache
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\MainWindow.g.cs
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\App.g.cs
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\Homework1_WPF_MarkupCompile.cache
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\Homework1_WPF_MarkupCompile.lref
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\bin\Debug\Homework1_WPF.exe.config
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\bin\Debug\Homework1_WPF.exe
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\bin\Debug\Homework1_WPF.pdb
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\MainWindow.baml
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\Homework1_WPF.g.resources
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\Homework1_WPF.Properties.Resources.resources
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\Homework1_WPF.csproj.GenerateResource.cache
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\Homework1_WPF.csproj.CoreCompileInputs.cache
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\Homework1_WPF.exe
+E:\Projects\DotNetHomework\Homework1\Homework1_WPF\obj\Debug\Homework1_WPF.pdb

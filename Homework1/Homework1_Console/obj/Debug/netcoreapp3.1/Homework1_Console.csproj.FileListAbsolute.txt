@@ -1,0 +1,13 @@
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\bin\Debug\netcoreapp3.1\Homework1_Console.exe
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\bin\Debug\netcoreapp3.1\Homework1_Console.deps.json
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\bin\Debug\netcoreapp3.1\Homework1_Console.runtimeconfig.json
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\bin\Debug\netcoreapp3.1\Homework1_Console.runtimeconfig.dev.json
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\bin\Debug\netcoreapp3.1\Homework1_Console.dll
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\bin\Debug\netcoreapp3.1\Homework1_Console.pdb
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\obj\Debug\netcoreapp3.1\Homework1_Console.csprojAssemblyReference.cache
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\obj\Debug\netcoreapp3.1\Homework1_Console.AssemblyInfoInputs.cache
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\obj\Debug\netcoreapp3.1\Homework1_Console.AssemblyInfo.cs
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\obj\Debug\netcoreapp3.1\Homework1_Console.csproj.CoreCompileInputs.cache
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\obj\Debug\netcoreapp3.1\Homework1_Console.dll
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\obj\Debug\netcoreapp3.1\Homework1_Console.pdb
+E:\Projects\Homework_CSharp\Homework1\Homework1_Console\obj\Debug\netcoreapp3.1\Homework1_Console.genruntimeconfig.cache
