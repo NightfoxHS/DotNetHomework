@@ -32,6 +32,7 @@ namespace Homework1_Console
                     this.num2 = float.Parse(exp[1]);
                     this.symbol = x;
                     flag = true;
+                    break;
                 }
             }
             switch (this.symbol)
