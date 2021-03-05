@@ -23,7 +23,7 @@ namespace Homework1_Console
         {
             bool flag = false;
             char[] exp_set = { '+', '-', '*', '/', '%' };
-            foreach(char x in exp_set)
+            foreach (char x in exp_set)
             {
                 if (str.Contains(x))
                 {
@@ -38,19 +38,19 @@ namespace Homework1_Console
             switch (this.symbol)
             {
                 case '+':
-                    result= num1 + num2;
+                    result = num1 + num2;
                     break;
                 case '-':
-                    result= num1 - num2;
+                    result = num1 - num2;
                     break;
                 case '*':
-                    result= num1 * num2;
+                    result = num1 * num2;
                     break;
                 case '/':
-                    result= num1 / num2;
+                    result = num1 / num2;
                     break;
                 case '%':
-                    result= num1 % num2;
+                    result = num1 % num2;
                     break;
                 default:
                     return flag;
