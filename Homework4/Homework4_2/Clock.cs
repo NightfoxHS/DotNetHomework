@@ -23,6 +23,7 @@ namespace Homework4_2
             else
                 return true;
         }
+
     }
 
     public delegate void ClockHandler(object sender, TimeArgs time);
