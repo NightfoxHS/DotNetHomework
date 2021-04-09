@@ -97,13 +97,18 @@ namespace Homework6
                         }
                         break;
                     case 5:
-                        os.ExportOrders();
+                        Console.WriteLine("输入存放文件路径");
+                        string path_1 = Console.ReadLine();
+                        os.ExportOrders(path_1);
                         break;
                     case 6:
-                        os.ImportOrders();
+                        Console.WriteLine("输入存放文件路径");
+                        string path_2 = Console.ReadLine();
+                        os.ImportOrders(path_2);
                         break;
                     default:
-                        throw new Exception("菜单中无此项");
+                        Console.WriteLine("菜单中无此项");
+                        break;
                 }
             }
             catch (Exception e)

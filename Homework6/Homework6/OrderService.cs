@@ -23,21 +23,21 @@ namespace Homework6
 
         public void CreateCustomer(string name, string addr)
         {
-            if (name == null || name == " ")
-                throw new NullReferenceException("名字为空");
+            if (name.All(x=>x==' '))
+                throw new ArgumentNullException("名字为空");
             Customer customer = new Customer(name, addr);
             if (!customers.Contains(customer))
             {
                 customers.Add(customer);
             }
             else
-                throw new Exception("用户已存在");
+                throw new ApplicationException("用户已存在");
         }
 
         public void CreateGoods(string type, float price)
         {
-            if (type == null || type == " ")
-                throw new NullReferenceException("货物类型为空");
+            if (type.All(x => x == ' '))
+                throw new ArgumentNullException("货物类型为空");
             if (price <= 0)
                 throw new ArgumentOutOfRangeException("价格不能为0或负数");
             Goods goods = new Goods(type, price);
@@ -46,20 +46,18 @@ namespace Homework6
                 goodses.Add(goods);
             }
             else
-                throw new Exception("已存在该货物");
+                throw new ApplicationException("已存在该货物");
         }
 
         public void CreateOrder(Customer customer)
         {
-            if (customer == null)
-                throw new NullReferenceException("客户为空");
             Order order = new Order(customer, DateTime.Now);
             if (!orders.Contains(order))
             {
                 orders.Add(order);
             }
             else
-                throw new Exception("已存在该订单");
+                throw new ApplicationException("已存在该订单");
         }
 
         public void RemoveCustomer(int index)
@@ -69,7 +67,7 @@ namespace Homework6
                 customers.RemoveAt(index);
             }
             else
-                throw new IndexOutOfRangeException("客户中无此项。");
+                throw new ArgumentOutOfRangeException("客户中无此项。");
         }
 
         public void RemoveGoods(int index)
@@ -79,7 +77,7 @@ namespace Homework6
                 goodses.RemoveAt(index);
             }
             else
-                throw new IndexOutOfRangeException("货物中无此项。");
+                throw new ArgumentOutOfRangeException("货物中无此项。");
         }
 
         public void RemoveOrder(int index)
@@ -89,13 +87,11 @@ namespace Homework6
                 orders.RemoveAt(index);
             }
             else
-                throw new IndexOutOfRangeException("订单中无此项。");
+                throw new ArgumentOutOfRangeException("订单中无此项。");
         }
 
         public void ModifyGoods(int index, string type, float price)
         {
-            if (type == null)
-                throw new NullReferenceException("货物类型为空");
             if (price <= 0)
                 throw new ArgumentOutOfRangeException("价格不能为0或负数");
             if (index < goodses.Count && index >= 0)
@@ -104,20 +100,20 @@ namespace Homework6
                 goodses[index].Price = price;
             }
             else
-                throw new IndexOutOfRangeException("货物中无此项。");
+                throw new ArgumentOutOfRangeException("货物中无此项。");
         }
 
         public void ModifyCustomer(int index, string name, string addr)
         {
-            if (name == null || name == " ")
-                throw new NullReferenceException("名字为空");
+            if (name.All(x => x == ' '))
+                throw new ArgumentNullException("名字为空");
             if (index < customers.Count && index >= 0)
             {
                 customers[index].Name = name;
                 customers[index].Addr = addr;
             }
             else
-                throw new IndexOutOfRangeException("用户中无此项。");
+                throw new ArgumentOutOfRangeException("用户中无此项。");
         }
 
         public void DisplayCustomers()
@@ -160,7 +156,7 @@ namespace Homework6
                 }
             }
             else
-                throw new NullReferenceException("无此查询结果！");
+                throw new ApplicationException("无此查询结果！");
         }
 
         public IEnumerable<Order> QueryByName(string name)
@@ -264,20 +260,20 @@ namespace Homework6
             return orders;
         }
 
-        public void ExportOrders()
+        public void ExportOrders(string path)
         {
             Order[] orders = this.orders.ToArray();
             XmlSerializer xs = new XmlSerializer(typeof(Order[]));
-            using (FileStream fs = new FileStream("Orders.xml", FileMode.Create))
+            using (FileStream fs = new FileStream(path, FileMode.Create))
             {
                 xs.Serialize(fs, orders);
             }
         }
 
-        public void ImportOrders()
+        public void ImportOrders(string path)
         {
             XmlSerializer xs = new XmlSerializer(typeof(Order[]));
-            using (FileStream fs = new FileStream("Orders.xml", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
                 if (fs.Length == 0)
                     throw new NullReferenceException("导入订单为空");
