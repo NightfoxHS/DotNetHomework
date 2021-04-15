@@ -43,11 +43,11 @@ namespace Homework7
             this.per2Value = new System.Windows.Forms.NumericUpDown();
             this.th1Value = new System.Windows.Forms.NumericUpDown();
             this.th2Value = new System.Windows.Forms.NumericUpDown();
-            this.draw_Button = new System.Windows.Forms.Button();
             this.colorSelect_Button = new System.Windows.Forms.Button();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.color_Label = new System.Windows.Forms.Label();
+            this.draw_Button = new System.Windows.Forms.Button();
             this.draw_Panel = new System.Windows.Forms.Panel();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lengthValue)).BeginInit();
@@ -143,9 +143,9 @@ namespace Homework7
             this.tableLayoutPanel1.Controls.Add(this.th1Value, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.th2Value, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.colorSelect_Button, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.color_Label, 2, 8);
             this.tableLayoutPanel1.Controls.Add(this.draw_Button, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.draw_Panel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.color_Label, 1, 8);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -234,18 +234,6 @@ namespace Homework7
             this.th2Value.Size = new System.Drawing.Size(88, 25);
             this.th2Value.TabIndex = 12;
             // 
-            // draw_Button
-            // 
-            this.draw_Button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel1.SetColumnSpan(this.draw_Button, 2);
-            this.draw_Button.Location = new System.Drawing.Point(463, 598);
-            this.draw_Button.Name = "draw_Button";
-            this.draw_Button.Size = new System.Drawing.Size(100, 30);
-            this.draw_Button.TabIndex = 13;
-            this.draw_Button.Text = "Draw";
-            this.draw_Button.UseVisualStyleBackColor = true;
-            this.draw_Button.Click += new System.EventHandler(this.draw_Button_Click);
-            // 
             // colorSelect_Button
             // 
             this.colorSelect_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -259,15 +247,28 @@ namespace Homework7
             // 
             // color_Label
             // 
-            this.color_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.color_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.color_Label.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.color_Label, 2);
             this.color_Label.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.color_Label.Location = new System.Drawing.Point(531, 645);
+            this.color_Label.Location = new System.Drawing.Point(506, 645);
             this.color_Label.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.color_Label.Name = "color_Label";
-            this.color_Label.Size = new System.Drawing.Size(54, 23);
+            this.color_Label.Size = new System.Drawing.Size(113, 23);
             this.color_Label.TabIndex = 17;
-            this.color_Label.Text = "Color";
+            this.color_Label.Text = "DefaultColor";
+            // 
+            // draw_Button
+            // 
+            this.draw_Button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.draw_Button, 2);
+            this.draw_Button.Location = new System.Drawing.Point(463, 598);
+            this.draw_Button.Name = "draw_Button";
+            this.draw_Button.Size = new System.Drawing.Size(100, 30);
+            this.draw_Button.TabIndex = 13;
+            this.draw_Button.Text = "Draw";
+            this.draw_Button.UseVisualStyleBackColor = true;
+            this.draw_Button.Click += new System.EventHandler(this.draw_Button_Click);
             // 
             // draw_Panel
             // 
