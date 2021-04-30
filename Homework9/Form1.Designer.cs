@@ -36,6 +36,7 @@ namespace Homework9
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.btnStart = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnStop = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +53,7 @@ namespace Homework9
             this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnStart, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnStop, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -59,6 +61,7 @@ namespace Homework9
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(575, 507);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -124,6 +127,17 @@ namespace Homework9
             this.textBox2.Size = new System.Drawing.Size(569, 401);
             this.textBox2.TabIndex = 6;
             // 
+            // btnStop
+            // 
+            this.btnStop.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnStop.Location = new System.Drawing.Point(480, 63);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStop.TabIndex = 7;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -148,6 +162,7 @@ namespace Homework9
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnStop;
     }
 }
 

@@ -16,7 +16,6 @@ namespace Homework9
     {
         public event Action<string> AddLog;
         private Hashtable urls = new Hashtable();
-        private Form1 fm;
         private int cnt = 0;
         public int Max { get; set; } = 20; //最大爬取页面数量
         public string Range { get; set; } //爬虫所爬取网页的Host
@@ -30,13 +29,12 @@ namespace Homework9
             Range = new Uri(beginUrl).Host;
             Max = max;
             Log = log;
-            this.fm = fm;
         }
 
         public void Crawl()
         {
             Log.Add("爬虫开始运行……");
-            fm.AddLog(Log.Last());
+            AddLog(Log.Last());
             while (true)
             {
                 string current = null;
@@ -48,7 +46,7 @@ namespace Homework9
 
                 if (current == null || cnt > Max) break;
                 Log.Add("抓取" + current + "页面");
-                fm.AddLog(Log.Last());
+                AddLog(Log.Last());
                 string html = DownLoad(current); //下载
                 urls[current] = true;
                 cnt++;
@@ -70,7 +68,7 @@ namespace Homework9
             catch (Exception ex)
             {
                 Log.Add(ex.Message);
-                fm.AddLog(Log.Last());
+                AddLog(Log.Last());
                 return "";
             }
         }
