@@ -13,7 +13,6 @@ namespace Homework8
     public partial class FormAddOrder : Form
     {
         Form1 fm;
-        OrderService os;
         public FormAddOrder()
         {
             InitializeComponent();
@@ -23,7 +22,6 @@ namespace Homework8
         {
             InitializeComponent();
             this.fm = fm;
-            this.os = fm.os;
         }
 
         private void FormAddOrder_Load(object sender, EventArgs e)
