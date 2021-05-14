@@ -13,7 +13,7 @@ namespace Homework8
     public partial class Form1 : Form
     {
         public OrderService os = new OrderService();
-
+        OrderContext db;
         public Form1()
         {
             InitializeComponent();
@@ -21,8 +21,8 @@ namespace Homework8
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var db = new OrderContext();
             toolStripComboBox1.SelectedIndex = 0;
+            db = new OrderContext();
             bindingSourceOrder.DataSource = db.Orders.ToList();
             bindingSourceCustomer.DataSource = db.Customers.ToList();
             bindingSourceGoods.DataSource = db.Goodses.ToList();
@@ -166,6 +166,11 @@ namespace Homework8
             {
                 MessageBox.Show(err.Message);
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            db.Dispose();
         }
     }
 }
