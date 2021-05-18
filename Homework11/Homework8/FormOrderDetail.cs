@@ -15,6 +15,7 @@ namespace Homework8
         Form1 fm;
         double ID;
         Order ord;
+        OrderContext db;
         public FormOrderDetail()
         {
             InitializeComponent();
@@ -30,7 +31,8 @@ namespace Homework8
 
         private void FormOrderDetail_Load(object sender, EventArgs e)
         {
-            bindingSourceOrderDetail.DataSource = ord.OrderDetails;
+            db = new OrderContext();
+            bindingSourceOrderDetail.DataSource = db.OrderDetails.Where(d => d.OrderId == ord.Id).ToList();
             bindingSourceOrderDetail.ResetBindings(false);
             textBoxName.Text = ord.Name;
             labelIDValue.DataBindings.Add("Text", ord, "ID");
@@ -75,6 +77,9 @@ namespace Homework8
             bindingSourceOrderDetail.ResetBindings(f);
         }
 
-       
+        private void FormOrderDetail_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            db.Dispose();
+        }
     }
 }

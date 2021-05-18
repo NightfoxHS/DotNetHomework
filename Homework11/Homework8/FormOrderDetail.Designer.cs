@@ -338,6 +338,7 @@ namespace Homework8
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormOrderDetail";
             this.Text = "订单详细情况";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormOrderDetail_FormClosing);
             this.Load += new System.EventHandler(this.FormOrderDetail_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

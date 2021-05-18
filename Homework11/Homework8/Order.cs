@@ -9,10 +9,8 @@ namespace Homework8
 {
     public class Order
     {
-        
-        
         [Key]
-        public double Id { get; set; }
+        public long Id { get; set; }
 
         public DateTime OrderTime { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
@@ -22,14 +20,19 @@ namespace Homework8
         public Customer Customer { get; set; }
         public string Name { get; set; }
 
-        public float TotalPrice { get
+        public float TotalPrice { 
+            get
             {
                 float sum = 0;
-                if (OrderDetails != null)
+                using (var db = new OrderContext())
                 {
-                    foreach (OrderDetail p in OrderDetails)
+                    var details = db.OrderDetails.Where(d => d.OrderId == Id).ToList();
+                    if (details != null)
                     {
-                        sum += p.goods.Price * p.Num;
+                        foreach (OrderDetail p in details)
+                        {
+                            sum += db.Goodses.Where(g=>g.Id==p.GoodsId).FirstOrDefault().Price * p.Num;
+                        }
                     }
                 }
                 return sum;
@@ -40,8 +43,8 @@ namespace Homework8
         {
             this.Customer = customer;
             this.CustomerId = customer.Id;
+            this.Name = customer.Name;
             this.OrderTime = orderTime;
-            Id = Convert.ToDouble(orderTime.ToString("yyyyMMddHHmmss") + (customer.GetHashCode() % 10000).ToString());
         }
 
         public Order()
@@ -49,11 +52,11 @@ namespace Homework8
 
         }
 
-        public void Add(Goods good,int num)
+        public void Add(Goods goods,int num)
         {
             using (var db = new OrderContext())
             {
-                OrderDetail detail = new OrderDetail(good, num);
+                OrderDetail detail = new OrderDetail(this, goods, num);
                 detail.OrderId = this.Id;
                 detail.Order = this;
                 db.OrderDetails.Add(detail);
@@ -65,7 +68,7 @@ namespace Homework8
         {
             using(var db = new OrderContext())
             {
-                var detail = db.OrderDetails.Where(o => o.OrderDetailId == id).FirstOrDefault();
+                var detail = db.OrderDetails.Where(o => o.Id == id).FirstOrDefault();
                 db.OrderDetails.Remove(detail);
                 db.SaveChanges();
             }
@@ -75,7 +78,7 @@ namespace Homework8
         {
            using(var db= new OrderContext())
             {
-                var detail = db.OrderDetails.Where(o => o.OrderDetailId == id).FirstOrDefault();
+                var detail = db.OrderDetails.Where(o => o.Id == id).FirstOrDefault();
                 if (detail != null)
                 {
                     detail.Num = num;

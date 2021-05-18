@@ -12,13 +12,6 @@ namespace Homework8
 
     public class OrderService
     {
-        private readonly List<Order> orders = new List<Order>();
-        private readonly List<Customer> customers = new List<Customer>();
-        private readonly List<Goods> goodses = new List<Goods>();
-        public List<Order> Orders { get => orders; }
-        public List<Customer> Customers { get => customers; }
-        public List<Goods> Goodses { get => goodses; }
-
         public OrderService()
         {
 
@@ -48,7 +41,15 @@ namespace Homework8
         {
             using (var db = new OrderContext())
             {
-                Order order = new Order(customer, time);
+                Order order;
+                var cus = db.Customers.Where(o => o.Id == customer.Id).FirstOrDefault();
+                if (cus != null)
+                {
+                    order = new Order(customer: cus, time);
+                    order.CustomerId = cus.Id;
+                }
+                else
+                    order = new Order(customer, time);
                 db.Orders.Add(order);
                 db.SaveChanges();
             }
@@ -74,7 +75,7 @@ namespace Homework8
             }
         }
 
-        public static void RemoveOrder(int id)
+        public static void RemoveOrder(long id)
         {
             using (var db = new OrderContext())
             {
@@ -115,7 +116,7 @@ namespace Homework8
             using (var db = new OrderContext())
             {
                 var query = from o in db.Orders
-                            where o.Name == name
+                            where o.Customer.Name == name
                             select o;
                 return query;
             }

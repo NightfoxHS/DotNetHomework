@@ -8,56 +8,59 @@ namespace Homework8
     public class OrderDetail
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int OrderDetailId { get; set; }
-        public Goods goods;
+        public int Id { get; set; }
+        public int GoodsId { get; set; }
+        [ForeignKey("GoodsId")]
+        public Goods Goods { get; set; }
         public int Num { get; set; }
-        public string Type { get => goods.Type; }
-        public float Price { get => goods.Price; }
+        public string Type { get; set; }
+        public float Price { get; set; }
 
-        public double OrderId { get; set; }
+        public long OrderId { get; set; }
         [ForeignKey("OrderId")]
         public Order Order { get; set; }
 
-        public OrderDetail(string type,int num,float price)
+        public OrderDetail(Order ord,string type,int num,float price)
         {
-            try
-            {
-                goods = new Goods(type, price);
-                Num = num;
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine($"error:{e.Message}");
-            }
+            Order = ord;
+            OrderId = ord.Id;
+            Goods = new Goods(type, price);
+            GoodsId = Goods.Id;
+            Type = Goods.Type;
+            Price = Goods.Price;
+            Num = num;
         }
 
-        public OrderDetail(Goods goods,int num)
+        public OrderDetail(Order ord, Goods goods,int num)
         {
-            try
-            {
-                this.goods = goods;
-                Num = num;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"error:{e.Message}");
-            }
+            Order = ord;
+            OrderId = ord.Id;
+            Goods = goods;
+            GoodsId = Goods.Id;
+            Type = Goods.Type;
+            Price = Goods.Price;
+            Num = num;
+        }
+
+        public OrderDetail()
+        {
+
         }
 
         public override string ToString()
         {
-            return "Type:" + goods.Type + " Price" + goods.Price + " Num:" + Num;
+            return "Type:" + Goods.Type + " Price" + Goods.Price + " Num:" + Num;
         }
 
         public override bool Equals(object obj)
         {
             return obj is OrderDetail detail &&
-                   EqualityComparer<Goods>.Default.Equals(goods, detail.goods);
+                   EqualityComparer<Goods>.Default.Equals(Goods, detail.Goods);
         }
 
         public override int GetHashCode()
         {
-            return -1930756903 + EqualityComparer<Goods>.Default.GetHashCode(goods);
+            return -1930756903 + EqualityComparer<Goods>.Default.GetHashCode(Goods);
         }
     }
 }
