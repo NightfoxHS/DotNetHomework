@@ -66,7 +66,7 @@ namespace OrderWeb.Controllers
 
         // PUT: api/order/{id}
         [HttpPut("{id}")]
-        public ActionResult<Order> PutTodoItem(string id, Order order)
+        public ActionResult<Order> PutOrder(string id, Order order)
         {
             if (Convert.ToInt64(id) != order.Id)
             {
@@ -88,7 +88,7 @@ namespace OrderWeb.Controllers
 
         // DELETE: api/order/{id}
         [HttpDelete("{id}")]
-        public ActionResult DeleteTodoItem(string id)
+        public ActionResult DeleteOrder(string id)
         {
             try
             {
